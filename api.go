@@ -81,12 +81,6 @@ const (
 	MAX_CHARS_PER_LINE     = 80
 )
 
-// type permutationTable [BITS_PER_BLOCK]int
-// type xorTable [BITS_PER_BLOCK][MAX_XOR_TAPS_PER_BIT + 1]byte
-// type keySchedule [r + 1][WORDS_PER_BLOCK]uint32
-// type Block [WORDS_PER_BLOCK]uint32
-// type Key [WORDS_PER_KEY]uint32
-
 func newKeySchedule() [][]uint {
 	k := make([][]uint, r+1)
 	for i := 0; i < (r + 1); i++ {
