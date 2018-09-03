@@ -143,8 +143,8 @@ func LTInverse(output, input []uint) {
 }
 
 func R(i int, BHati []uint, KHat [][]uint, BHatiPlus1 []uint) {
-	xored := newBlockSlice()
-	SHati := newBlockSlice()
+	xored := NewBlockSlice()
+	SHati := NewBlockSlice()
 
 	xorBlock(BHati, KHat[i], xored)
 	SHat(i, xored, SHati)
@@ -159,8 +159,8 @@ func R(i int, BHati []uint, KHat [][]uint, BHatiPlus1 []uint) {
 }
 
 func RInverse(i int, BHatiPlus1 []uint, KHat [][]uint, BHati []uint) {
-	xored := newBlockSlice()
-	SHati := newBlockSlice()
+	xored := NewBlockSlice()
+	SHati := NewBlockSlice()
 
 	if 0 <= i && i <= (r-2) {
 		LTInverse(BHatiPlus1, SHati)
@@ -224,7 +224,7 @@ func makeSubkeys(userKey []uint, KHat [][]uint) {
 }
 
 func encryptGivenKHat(plainText []uint, KHat [][]uint, cipherText []uint) {
-	BHat := newBlockSlice()
+	BHat := NewBlockSlice()
 
 	IP(plainText, BHat)
 	for i := 0; i < r; i++ {
@@ -234,7 +234,7 @@ func encryptGivenKHat(plainText []uint, KHat [][]uint, cipherText []uint) {
 }
 
 func decryptGivenKHat(cipherText []uint, KHat [][]uint, plainText []uint) {
-	BHat := newBlockSlice()
+	BHat := NewBlockSlice()
 
 	FPInverse(cipherText, BHat)
 	for i := (r - 1); i >= 0; i-- {

@@ -21,7 +21,7 @@
 */
 package serpent
 
-func makeKey(key *keyInstance, keyLen int, keyMaterial []byte) int {
+func MakeKey(key *keyInstance, keyLen int, keyMaterial []byte) int {
 	if (keyLen % BITS_PER_WORD) > 0 {
 		return BAD_KEY_MAT
 	}
@@ -43,10 +43,10 @@ func makeKey(key *keyInstance, keyLen int, keyMaterial []byte) int {
 	return OK
 }
 
-func blockEncrypt(key *keyInstance, input, output []uint) {
+func BlockEncrypt(key *keyInstance, input, output []uint) {
 	encryptGivenKHat(input, key.KHat, output)
 }
 
-func blockDecrypt(key *keyInstance, input, output []uint) {
+func BlockDecrypt(key *keyInstance, input, output []uint) {
 	decryptGivenKHat(input, key.KHat, output)
 }

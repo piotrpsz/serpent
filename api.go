@@ -97,7 +97,7 @@ type keyInstance struct {
 	KHat        [][]uint
 }
 
-func newKeyInstance() *keyInstance {
+func NewKeyInstance() *keyInstance {
 	ki := new(keyInstance)
 	ki.keyMaterial = make([]byte, MAX_KEY_SIZE)
 	ki.userKey = make([]uint, WORDS_PER_KEY)

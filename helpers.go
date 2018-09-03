@@ -26,7 +26,7 @@ import (
 	"log"
 )
 
-func newBlockSlice() []uint {
+func NewBlockSlice() []uint {
 	return make([]uint, WORDS_PER_BLOCK)
 }
 

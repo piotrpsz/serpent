@@ -107,7 +107,7 @@ func stringToWords(s []byte, w []uint, words int) int {
 	return OK
 }
 
-func stringAsWords(textInHex string) ([]uint, error) {
+func StringAsWords(textInHex string) ([]uint, error) {
 	textBytes := []byte(textInHex)
 	digits := checkHexNumber(textBytes)
 	if digits < 0 {
@@ -135,7 +135,7 @@ func stringAsWords(textInHex string) ([]uint, error) {
 
 // wordsAsString
 // convert array of uints to big-endian hex format
-func wordsAsString(words []uint) string {
+func WordsAsString(words []uint) string {
 	n := len(words)
 	var sbuilder strings.Builder
 	sbuilder.Grow(n * HEX_DIGITS_PER_WORD)
