@@ -17,6 +17,9 @@
 
 	If you require this code under a license other than LGPL, please ask.
 */
+
+// for test run command: go test -v
+
 package serpent
 
 import (
