@@ -37,19 +37,19 @@ func TestBlockDecrypt(t *testing.T) {
 	expectedPlainText = "5206d69ccbc02d5e972d0ec9b077d3f9"
 	expectedPlainTextAsBlock = []uint{0xb077d3f9, 0x972d0ec9, 0xcbc02d5e, 0x5206d69c}
 
-	cipherTextAsBlock, err := stringAsWords(cipherText)
+	cipherTextAsBlock, err := StringAsWords(cipherText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance := newKeyInstance()
-	output := newBlockSlice()
+	keyInstance := NewKeyInstance()
+	output := NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockDecrypt(keyInstance, cipherTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockDecrypt(keyInstance, cipherTextAsBlock, output)
 	if !slicesAreEqual(output, expectedPlainTextAsBlock) {
 		t.Errorf("ERROR. Invalid cipher text as block.\n\tIs:     %v,\n\tshould: %v\n", blockStr(output), blockStr(expectedPlainTextAsBlock))
 	}
-	plainText := wordsAsString(output)
+	plainText := WordsAsString(output)
 	if plainText != expectedPlainText {
 		t.Errorf("ERROR. Invalid decrypted text.\n\tIs      %s,\n\tshould: %s.", plainText, expectedPlainText)
 	}
@@ -59,19 +59,19 @@ func TestBlockDecrypt(t *testing.T) {
 	expectedPlainText = "1f356dbd0829ffb383cbf6629551dbd7"
 	expectedPlainTextAsBlock = []uint{0x9551dbd7, 0x83cbf662, 0x829ffb3, 0x1f356dbd}
 
-	cipherTextAsBlock, err = stringAsWords(cipherText)
+	cipherTextAsBlock, err = StringAsWords(cipherText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance = newKeyInstance()
-	output = newBlockSlice()
+	keyInstance = NewKeyInstance()
+	output = NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockDecrypt(keyInstance, cipherTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockDecrypt(keyInstance, cipherTextAsBlock, output)
 	if !slicesAreEqual(output, expectedPlainTextAsBlock) {
 		t.Errorf("ERROR. Invalid cipher text as block.\n\tIs:     %v,\n\tshould: %v\n", blockStr(output), blockStr(expectedPlainTextAsBlock))
 	}
-	plainText = wordsAsString(output)
+	plainText = WordsAsString(output)
 	if plainText != expectedPlainText {
 		t.Errorf("ERROR. Invalid decrypted text.\n\tIs      %s,\n\tshould: %s.", plainText, expectedPlainText)
 	}
@@ -81,19 +81,19 @@ func TestBlockDecrypt(t *testing.T) {
 	expectedPlainText = "b442679e3e38d3101421537f193e2e0f"
 	expectedPlainTextAsBlock = []uint{0x193e2e0f, 0x1421537f, 0x3e38d310, 0xb442679e}
 
-	cipherTextAsBlock, err = stringAsWords(cipherText)
+	cipherTextAsBlock, err = StringAsWords(cipherText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance = newKeyInstance()
-	output = newBlockSlice()
+	keyInstance = NewKeyInstance()
+	output = NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockDecrypt(keyInstance, cipherTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockDecrypt(keyInstance, cipherTextAsBlock, output)
 	if !slicesAreEqual(output, expectedPlainTextAsBlock) {
 		t.Errorf("ERROR. Invalid cipher text as block.\n\tIs:     %v,\n\tshould: %v\n", blockStr(output), blockStr(expectedPlainTextAsBlock))
 	}
-	plainText = wordsAsString(output)
+	plainText = WordsAsString(output)
 	if plainText != expectedPlainText {
 		t.Errorf("ERROR. Invalid decrypted text.\n\tIs      %s,\n\tshould: %s.", plainText, expectedPlainText)
 	}
@@ -112,19 +112,19 @@ func TestBlockEncrypt(t *testing.T) {
 	expectedCipherText = "1a72aa13935f45f22094272fc2960a26"
 	expectedCipherTextAsBlock = []uint{0xc2960a26, 0x2094272f, 0x935f45f2, 0x1a72aa13}
 
-	plainTextAsBlock, err := stringAsWords(plainText)
+	plainTextAsBlock, err := StringAsWords(plainText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance := newKeyInstance()
-	output := newBlockSlice()
+	keyInstance := NewKeyInstance()
+	output := NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockEncrypt(keyInstance, plainTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockEncrypt(keyInstance, plainTextAsBlock, output)
 	if !slicesAreEqual(output, expectedCipherTextAsBlock) {
 		t.Errorf("Invalid cipher text as block.")
 	}
-	cipherText := wordsAsString(output)
+	cipherText := WordsAsString(output)
 	if cipherText != expectedCipherText {
 		t.Errorf("ERROR. Invalid encypted text. Is %s, should: %s.", cipherText, expectedCipherText)
 	}
@@ -134,19 +134,19 @@ func TestBlockEncrypt(t *testing.T) {
 	expectedCipherText = "4959d294e1c204dcd2e085e14936da62"
 	expectedCipherTextAsBlock = []uint{0x4936da62, 0xd2e085e1, 0xe1c204dc, 0x4959d294}
 
-	plainTextAsBlock, err = stringAsWords(plainText)
+	plainTextAsBlock, err = StringAsWords(plainText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance = newKeyInstance()
-	output = newBlockSlice()
+	keyInstance = NewKeyInstance()
+	output = NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockEncrypt(keyInstance, plainTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockEncrypt(keyInstance, plainTextAsBlock, output)
 	if !slicesAreEqual(output, expectedCipherTextAsBlock) {
 		t.Errorf("Invalid cipher text as block.")
 	}
-	cipherText = wordsAsString(output)
+	cipherText = WordsAsString(output)
 	if cipherText != expectedCipherText {
 		t.Errorf("ERROR. Invalid cipher text. Is %s, should: %s.", cipherText, expectedCipherText)
 	}
@@ -156,19 +156,19 @@ func TestBlockEncrypt(t *testing.T) {
 	expectedCipherText = "d93dcd724d148939e2b82183d39981ce"
 	expectedCipherTextAsBlock = []uint{0xd39981ce, 0xe2b82183, 0x4d148939, 0xd93dcd72}
 
-	plainTextAsBlock, err = stringAsWords(plainText)
+	plainTextAsBlock, err = StringAsWords(plainText)
 	if err != nil {
 		t.Error(err)
 	}
-	keyInstance = newKeyInstance()
-	output = newBlockSlice()
+	keyInstance = NewKeyInstance()
+	output = NewBlockSlice()
 
-	makeKey(keyInstance, len(userKey)*4, userKey)
-	blockEncrypt(keyInstance, plainTextAsBlock, output)
+	MakeKey(keyInstance, len(userKey)*4, userKey)
+	BlockEncrypt(keyInstance, plainTextAsBlock, output)
 	if !slicesAreEqual(output, expectedCipherTextAsBlock) {
 		t.Errorf("Invalid cipher text as block.")
 	}
-	cipherText = wordsAsString(output)
+	cipherText = WordsAsString(output)
 	if cipherText != expectedCipherText {
 		t.Errorf("ERROR. Invalid cipher text. Is %s, should: %s.", cipherText, expectedCipherText)
 	}
@@ -182,7 +182,7 @@ func TestMakeKey(t *testing.T) {
 	var expectedKHat [][]uint
 	var userKey []byte
 
-	keyInstance := newKeyInstance()
+	keyInstance := NewKeyInstance()
 	userKey = []byte("1234567890abcdef1234567890abcdef")
 	expectedUserKey = []uint{0x90abcdef, 0x12345678, 0x90abcdef, 0x12345678, 0x1, 0x0, 0x0, 0x0}
 	expectedKHat = [][]uint{
@@ -220,7 +220,7 @@ func TestMakeKey(t *testing.T) {
 		{0xcc9807d1, 0x9d654d97, 0x7c6af61e, 0xde7e114f},
 		{0x2cc6ac2, 0x5154e521, 0xd6445e2b, 0xeb48c033},
 	}
-	retv := makeKey(keyInstance, len(userKey)*4, userKey)
+	retv := MakeKey(keyInstance, len(userKey)*4, userKey)
 	if retv != OK {
 		t.Errorf("Bad retv. Is: %d, should: %d", retv, OK)
 	}
@@ -234,7 +234,7 @@ func TestMakeKey(t *testing.T) {
 		t.Errorf("Bad KHat")
 	}
 
-	keyInstance = newKeyInstance()
+	keyInstance = NewKeyInstance()
 	userKey = []byte("f234567890abcdef1234567890abcde1")
 	expectedUserKey = []uint{0x90abcde1, 0x12345678, 0x90abcdef, 0xf2345678, 0x1, 0x0, 0x0, 0x0}
 	expectedKHat = [][]uint{
@@ -272,7 +272,7 @@ func TestMakeKey(t *testing.T) {
 		{0xaca5f488, 0xaf468c9b, 0x3c65c3b9, 0xffe1e869},
 		{0x1ee2823, 0xcf1a6930, 0xf06da607, 0x7050a10},
 	}
-	retv = makeKey(keyInstance, len(userKey)*4, userKey)
+	retv = MakeKey(keyInstance, len(userKey)*4, userKey)
 	if retv != OK {
 		t.Errorf("Bad retv. Is: %d, should: %d", retv, OK)
 	}
@@ -286,7 +286,7 @@ func TestMakeKey(t *testing.T) {
 		t.Errorf("Bad KHat")
 	}
 
-	keyInstance = newKeyInstance()
+	keyInstance = NewKeyInstance()
 	userKey = []byte("ef34567890abcdef1234567890abcd12")
 	expectedUserKey = []uint{0x90abcd12, 0x12345678, 0x90abcdef, 0xef345678, 0x1, 0x0, 0x0, 0x0}
 	expectedKHat = [][]uint{
@@ -324,7 +324,7 @@ func TestMakeKey(t *testing.T) {
 		{0x215d18ea, 0x343e97e9, 0xaef073d, 0x7b55f80},
 		{0xf66599fb, 0x39db016a, 0x1dc8b5f6, 0x85e5b21},
 	}
-	retv = makeKey(keyInstance, len(userKey)*4, userKey)
+	retv = MakeKey(keyInstance, len(userKey)*4, userKey)
 	if retv != OK {
 		t.Errorf("Bad retv. Is: %d, should: %d", retv, OK)
 	}
@@ -1295,7 +1295,7 @@ func TestEncryptGivenKHat(t *testing.T) {
 		{0xcc9807d1, 0x9d654d97, 0x7c6af61e, 0xde7e114f},
 		{0x2cc6ac2, 0x5154e521, 0xd6445e2b, 0xeb48c033},
 	}
-	cipherText := newBlockSlice()
+	cipherText := NewBlockSlice()
 
 	encryptGivenKHat(plainText, KHat, cipherText)
 	if !slicesAreEqual(cipherText, expected) {
@@ -1344,7 +1344,7 @@ func TestDencryptGivenKHat(t *testing.T) {
 		{0xcc9807d1, 0x9d654d97, 0x7c6af61e, 0xde7e114f},
 		{0x2cc6ac2, 0x5154e521, 0xd6445e2b, 0xeb48c033},
 	}
-	plainText := newBlockSlice()
+	plainText := NewBlockSlice()
 
 	decryptGivenKHat(cipherText, KHat, plainText)
 	if !slicesAreEqual(plainText, expected) {
